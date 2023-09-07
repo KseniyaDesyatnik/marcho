@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="css/contacts.min.css" />
     <link rel="stylesheet" href="css/style.min.css" />
   </head>
   <body>
@@ -14,6 +15,9 @@
             <img class="logo__img" src="images/logo.png" alt="logo" />
           </a>
           <nav class="menu">
+            <button class="menu__btn">
+              <span></span>
+            </button>
             <ul class="menu__list">
               <li class="menu__list-item">
                 <a class="menu__list-link menu__list-link--active" href="#"
@@ -70,7 +74,79 @@
       </div>
     </header>
     <main class="main">
+
+      <section class="top">
+  <div
+    class="top__container"
+    style="background-image: url('images/top-bg.jpg')"
+  >
+    <div class="container">
+      <h2 class="top__title title">LOG IN</h2>
+      <div class="breadcrumbs">
+        <ul class="breadcrumbs__list">
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="#"> Home </a>
+          </li>
+          <li class="breadcrumbs__item">
+            <a class="breadcrumbs__link" href="#"> Log in </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
       
+      <section class="map">
+        <div class="container">
+          <div id="map"></div>
+        </div>
+      </section>
+
+      <section class="contact">
+        <div class="container">
+          <div class="contact__inner">
+            <div class="contact__info">
+              <h3 class="contact__info-title">
+                Feel Free Don’t Hesitate To Contact With Us
+              </h3>
+              <p class="contact__info-text">
+                Lorem ipsum dolor sit amet, consectetur adingn elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
+                ipsum suspendisse ultrices gravida. Risus commodo maecnaacnrao
+                cumsan lacus vel facilisis.
+              </p>
+              <ul class="contact__info-list">
+                <li class="contact__info-item">
+                  <a class="contact__info-phone" href="tel:+01234567896"
+                    >+0-123-456-7896
+                  </a>
+                  <a class="contact__info-phone" href="tel:+01234567896"
+                    >+0-123-456-7896
+                  </a>
+                </li>
+                <li class="contact__info-item contact__info-item--location">
+                  Ranlon Market 789 Road,<br> Market Street, Newyork
+                </li>
+                <li class="contact__info-item contact__info-item--email">
+                  <div>yourmailaddress@gmail.com</div>
+                  <div>companymail@gmail.com</div>
+                </li>
+              </ul>
+            </div>
+            <form class="contact__form" action="#">
+              <p class="contact__form-title">Contact Form</p>
+              <div class="contact__form-box">
+                <input class="contact__form-input" type="text" placeholder="Your Name">
+                <input class="contact__form-input" type="text" placeholder="Your E-mail Address">
+              </div>
+              <input class="contact__form-input" type="text" placeholder="Subject">
+              <textarea class="contact__form-textarea" placeholder="Message here"></textarea>
+              <button class="contact__form-btn" type="submit">SEND MESSAGE</button>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="footer">
       <div class="container">
@@ -266,6 +342,54 @@
         </div>
       </div>
     </footer>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&v=weekly"
+      defer
+    ></script>
+
+    <script>
+      let map;
+
+      async function initMap() {
+        const { Map } = await google.maps.importLibrary("maps");
+
+        map = new Map(document.getElementById("map"), {
+          center: { lat: 40.714666364943575, lng: -74.00285230376076 },
+          zoom: 13,
+          styles: [
+            {
+              stylers: [
+                {
+                  hue: "#dd0d0d",
+                },
+              ],
+            },
+            {
+              featureType: "road",
+              elementType: "labels",
+              stylers: [
+                {
+                  visibility: "off",
+                },
+              ],
+            },
+            {
+              featureType: "road",
+              elementType: "geometry",
+              stylers: [
+                {
+                  lightness: 100,
+                },
+                {
+                  visibility: "simplified",
+                },
+              ],
+            },
+          ],
+        });
+      }
+    </script>
 
     <script src="js/main.min.js"></script>
   </body>
